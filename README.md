@@ -1,5 +1,9 @@
 <p align="center">
-  <img alt="docker-sage" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
+  <img src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" alt="Bedrock" height="60" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://tailwindcss.com/favicons/apple-touch-icon.png" alt="Tailwind CSS" height="60" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://dokku.com/images/mark.svg" alt="Dokku" height="60" />
 </p>
 
 <p align="center">
