@@ -1,0 +1,15 @@
+{
+    "name": "docker-sage",
+    "scripts": {},
+    "env": {},
+    "formation": {},
+    "addons": {},
+    "healthcheck": {
+        "web": {
+            "path": "/wp-json/sage/v1/healthcheck",
+            "interval": 30,
+            "timeout": 4,
+            "retries": 6
+        }
+    }
+}
