@@ -6,8 +6,6 @@
   <img src="https://dokku.com/assets/dokku-logo.svg" alt="Dokku" height="60" />
   &nbsp;&nbsp;&nbsp;
   <img src="https://s.w.org/about/images/logos/wordpress-logo-notext-rgb.png" alt="WordPress" height="60" />
-  &nbsp;&nbsp;&nbsp;
-  <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic-white.png" alt="Docker" height="60" />
 </p>
 
 <p align="center">
