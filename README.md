@@ -4,6 +4,8 @@
   <img src="https://tailwindcss.com/favicons/apple-touch-icon.png" alt="Tailwind CSS" height="60" />
   &nbsp;&nbsp;&nbsp;
   <img src="https://dokku.com/assets/dokku-logo.svg" alt="Dokku" height="60" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://s.w.org/about/images/logos/wordpress-logo-notext-rgb.png" alt="WordPress" height="60" />
 </p>
 
 <p align="center">
@@ -14,6 +16,7 @@
 
 ## 🚀 Stack Overview
 
+- [WordPress](https://wordpress.org): Content management system powering the theme
 - [Bedrock](https://roots.io/bedrock/): WordPress boilerplate with Composer, Dotenv, and better structure
 - [Sage](https://roots.io/sage/): Modern WordPress theme using Blade, Vite, and Tailwind CSS
 - [Tailwind CSS v4](https://tailwindcss.com): Utility-first CSS framework
@@ -85,8 +88,10 @@ git push dokku main
 
 ## ✨ Credits
 
+- [WordPress](https://wordpress.org) for the rock-solid CMS foundation  
 - [Roots](https://roots.io) for Bedrock and Sage  
 - [Tailwind Labs](https://tailwindcss.com) for Tailwind CSS  
+- [Docker](https://www.docker.com) for containerized development  
 - [Dokku](https://dokku.com) for easy app deployments
 
 ---
