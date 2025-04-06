@@ -57,10 +57,11 @@ docker-compose exec app composer install
 cd web/app/themes/sage
 yarn install
 yarn dev
+```
 
 ## 🌐 Dokku Deployment
 
-`
+```
 "healthcheck": {
   "web": {
     "path": "/wp-json/sage/v1/healthcheck",
@@ -69,17 +70,22 @@ yarn dev
     "retries": 6
   }
 }
-`
+```
 
-`
+```
 git remote add dokku dokku@your-server:your-app-name
 git push dokku main
-`
+```
+
+---
+
 ## ✨ Credits
 
 - [Roots](https://roots.io) for Bedrock and Sage  
 - [Tailwind Labs](https://tailwindcss.com) for Tailwind CSS  
 - [Dokku](https://dokku.com) for easy app deployments
+
+---
 
 ## 📬 Stay in the Loop
 
