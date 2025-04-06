@@ -1,62 +1,89 @@
 <p align="center">
-  <a href="https://roots.io/bedrock/">
-    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
-  </a>
+  <img alt="docker-sage" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
 </p>
 
 <p align="center">
-  <a href="https://packagist.org/packages/roots/bedrock">
-    <img alt="Packagist Installs" src="https://img.shields.io/packagist/dt/roots/bedrock?label=projects%20created&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
-
-  <a href="https://packagist.org/packages/roots/wordpress">
-    <img alt="roots/wordpress Packagist Downloads" src="https://img.shields.io/packagist/dt/roots/wordpress?label=roots%2Fwordpress%20downloads&logo=roots&logoColor=white&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
-  
-  <img src="https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/roots/bedrock/master/composer.json&label=wordpress&logo=roots&logoColor=white&query=$.require[%22roots/wordpress%22]&colorB=2b3072&colorA=525ddc&style=flat-square">
-
-  <a href="https://github.com/roots/bedrock/actions/workflows/ci.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/roots/bedrock/ci.yml?branch=master&logo=github&label=CI&style=flat-square">
-  </a>
-
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/badge/follow%20@rootswp-1da1f2?logo=twitter&logoColor=ffffff&message=&style=flat-square">
-  </a>
+  A modern WordPress development boilerplate using <strong>Bedrock</strong> + <strong>Sage</strong> with <strong>Tailwind CSS v4</strong>, built for local Docker environments and deployed via <strong>Dokku</strong>.
 </p>
 
-<p align="center">WordPress boilerplate with Composer, easier configuration, and an improved folder structure</p>
+---
 
-<p align="center">
-  <a href="https://roots.io/bedrock/">Website</a> &nbsp;&nbsp; <a href="https://roots.io/bedrock/docs/installation/">Documentation</a> &nbsp;&nbsp; <a href="https://github.com/roots/bedrock/releases">Releases</a> &nbsp;&nbsp; <a href="https://discourse.roots.io/">Community</a>
-</p>
+## 🚀 Stack Overview
 
-## Sponsors
+- [Bedrock](https://roots.io/bedrock/): WordPress boilerplate with Composer, Dotenv, and better structure
+- [Sage](https://roots.io/sage/): Modern WordPress theme using Blade, Vite, and Tailwind CSS
+- [Tailwind CSS v4](https://tailwindcss.com): Utility-first CSS framework
+- [Docker](https://www.docker.com): For isolated local dev environments
+- [Dokku](https://dokku.com): Lightweight Heroku-style app deployment for self-hosting
 
-Bedrock is an open source project and completely free to use. If you've benefited from our projects and would like to support our future endeavors, please consider [sponsoring Roots](https://github.com/sponsors/roots).
+---
 
-<div align="center">
-<a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="120" height="90"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="120" height="90"></a> <a href="https://worksitesafety.ca/careers/"><img src="https://cdn.roots.io/app/uploads/worksite-safety.svg" alt="Worksite Safety" width="120" height="90"></a> <a href="https://www.itineris.co.uk/"><img src="https://cdn.roots.io/app/uploads/itineris.svg" alt="Itineris" width="120" height="90"></a> <a href="https://bonsai.so/"><img src="https://cdn.roots.io/app/uploads/bonsai.svg" alt="Bonsai" width="120" height="90"></a> <a href="https://fusepress.co/sp/sign-up/"><img src="https://cdn.roots.io/app/uploads/fusepress.svg" alt="FusePress" width="120" height="90"></a>
-</div>
+## 📁 Features
 
-## Overview
+- Modern project structure based on Bedrock
+- Laravel-style WordPress theme development with Blade and Composer
+- Vite-powered asset bundling with Tailwind CSS v4 and hot reload
+- Built-in REST healthcheck endpoint (`/wp-json/sage/v1/healthcheck`) for Dokku health checks
+- Environment-based config via `.env`
+- Full Docker/Dokku-ready setup (with `Dockerfile`, `docker-compose.yml`, `app.json`, etc.)
 
-Bedrock is a WordPress boilerplate for developers that want to manage their projects with Git and Composer. Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology, including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+---
 
-- Better folder structure
-- Dependency management with [Composer](https://getcomposer.org)
-- Easy WordPress configuration with environment specific files
-- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-- Autoloader for mu-plugins (use regular plugins as mu-plugins)
-- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
+## 📦 Requirements
 
-## Getting Started
+- Docker (for local development)
+- Dokku (for deployment)
+- Node.js / Yarn (for frontend tooling)
+- Composer (for PHP dependency management)
 
-See the [Bedrock installation documentation](https://roots.io/bedrock/docs/installation/).
+---
 
-## Stay Connected
+## 🛠 Local Development
 
-- Join us on Discord by [sponsoring us on GitHub](https://github.com/sponsors/roots)
-- Participate on [Roots Discourse](https://discourse.roots.io/)
+```bash
+# Clone the repo
+git clone git@github.com:your-org/docker-sage.git && cd docker-sage
+
+# Copy env config
+cp .env.example .env
+
+# Start containers
+docker-compose up -d --build
+
+# Install PHP dependencies
+docker-compose exec app composer install
+
+# Install frontend dependencies
+cd web/app/themes/sage
+yarn install
+yarn dev
+
+## 🌐 Dokku Deployment
+
+`
+"healthcheck": {
+  "web": {
+    "path": "/wp-json/sage/v1/healthcheck",
+    "interval": 30,
+    "timeout": 4,
+    "retries": 6
+  }
+}
+`
+
+`
+git remote add dokku dokku@your-server:your-app-name
+git push dokku main
+`
+## ✨ Credits
+
+- [Roots](https://roots.io) for Bedrock and Sage  
+- [Tailwind Labs](https://tailwindcss.com) for Tailwind CSS  
+- [Dokku](https://dokku.com) for easy app deployments
+
+## 📬 Stay in the Loop
+
+- Join the [Roots Discourse](https://discourse.roots.io/)
 - Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/newsletter/)
+- Check out [Tailwind CSS v4 progress](https://github.com/tailwindlabs/tailwindcss/releases)
+- Visit [dokku.com](https://dokku.com) for server setup and scaling
