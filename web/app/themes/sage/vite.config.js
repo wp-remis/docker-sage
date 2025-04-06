@@ -1,10 +1,15 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
-import laravel from 'laravel-vite-plugin'
+import laravel from 'laravel-vite-plugin';
 import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Load environment variables from .env file
+dotenv.config();
 
 export default defineConfig({
-  base: '/app/themes/sage/public/build/',
+  base: process.env.PUBLIC_PATH || '/app/themes/sage/public/build/',
   plugins: [
     tailwindcss(),
     laravel({
@@ -16,11 +21,7 @@ export default defineConfig({
       ],
       refresh: true,
     }),
-
     wordpressPlugin(),
-
-    // Generate the theme.json file in the public/build/assets directory
-    // based on the Tailwind config and the theme.json file from base theme folder
     wordpressThemeJson({
       disableTailwindColors: false,
       disableTailwindFonts: false,
@@ -29,10 +30,10 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@scripts': '/resources/js',
-      '@styles': '/resources/css',
-      '@fonts': '/resources/fonts',
-      '@images': '/resources/images',
+      '@scripts': path.resolve(__dirname, 'resources/js'),
+      '@styles': path.resolve(__dirname, 'resources/css'),
+      '@fonts': path.resolve(__dirname, 'resources/fonts'),
+      '@images': path.resolve(__dirname, 'resources/images'),
     },
   },
-})
+});

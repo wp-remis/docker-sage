@@ -1,0 +1,43 @@
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
+
+    networks:
+      - bedrock
+    environment:
+      WP_HOME: '${WP_HOME}'
+      WP_ENV: '${WP_ENV}'
+      APP_ENV: 'development'
+    expose:
+      - '9000'
+    ports:
+      - "8080:80"
+
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis:/data'
+    networks:
+      - bedrock
+
+  mailhog:
+    image: 'mailhog/mailhog:latest'
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+    networks:
+      - bedrock
+
+networks:
+  bedrock:
+    driver: bridge
+
+volumes:
+  redis:
+    driver: local

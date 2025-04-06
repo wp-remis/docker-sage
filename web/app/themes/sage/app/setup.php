@@ -128,6 +128,11 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
     add_theme_support('customize-selective-refresh-widgets');
+
+    /**
+     * Loading text domain for tranlations,
+     */
+    load_theme_textdomain('sage', get_template_directory() . '/resources/lang');
 }, 20);
 
 /**

@@ -39,3 +39,6 @@ error_log*
 *.sql
 .htaccess.bk
 .well-known
+
+# Make sure entrypoint.sh is not excluded
+!entrypoint.sh
