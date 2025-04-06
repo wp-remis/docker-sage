@@ -17,6 +17,37 @@ services:
     ports:
       - "8080:80"
 
+  db:
+    image: mariadb:10.6
+    container_name: bedrock-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - bedrock
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: bedrock-phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
+    networks:
+      - bedrock
+
   redis:
     image: 'redis:alpine'
     ports:
@@ -40,4 +71,7 @@ networks:
 
 volumes:
   redis:
+    driver: local
+  
+  db_data:
     driver: local
