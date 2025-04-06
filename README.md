@@ -3,7 +3,7 @@
   &nbsp;&nbsp;&nbsp;
   <img src="https://tailwindcss.com/favicons/apple-touch-icon.png" alt="Tailwind CSS" height="60" />
   &nbsp;&nbsp;&nbsp;
-  <img src="https://dokku.com/images/mark.svg" alt="Dokku" height="60" />
+  <img src="https://dokku.com/assets/dokku-logo.svg" alt="Dokku" height="60" />
 </p>
 
 <p align="center">
